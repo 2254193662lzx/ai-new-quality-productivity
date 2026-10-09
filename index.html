@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人工智能：新质生产力的核心引擎 · 数据可视化</title>
+<meta name="description" content="用二十余种数据可视化，回答人工智能作为新质生产力新在哪里、质在哪里、力在哪里。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%23a78bfa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='45' font-family='Arial,Helvetica,sans-serif' font-size='30' font-weight='700' fill='%23040710' text-anchor='middle'%3EAI%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/sections.css">
+</head>
+<body>
+
+<!-- 顶部滚动进度 -->
+<div class="progress-rail"><div class="progress-bar" id="progressBar"></div></div>
+
+<!-- ============================ 顶部导航 ============================ -->
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark">AI</div>
+    <div class="brand-text">
+      <b>人工智能 · 新质生产力</b>
+      <span>DATA VISUALIZATION</span>
+    </div>
+  </div>
+
+  <nav class="topnav" id="topnav">
+    <a href="#concept">概念</a>
+    <a href="#structure">结构</a>
+    <a href="#flow">要素流动</a>
+    <a href="#compute">算力</a>
+    <a href="#industry">产业规模</a>
+    <a href="#productivity">生产率</a>
+    <a href="#innovation">创新</a>
+    <a href="#global">全球格局</a>
+    <a href="#jobs">就业</a>
+    <a href="#future">未来</a>
+    <a href="#sources">数据来源</a>
+  </nav>
+
+  <div class="top-actions">
+    <button class="btn" id="btnTheme" title="切换深色 / 浅色主题">
+      <span class="ico">◐</span><span>主题</span>
+    </button>
+  </div>
+</header>
+
+<!-- 右侧章节导航（由 JS 生成） -->
+<nav class="sidenav" id="sidenav" aria-label="章节导航"></nav>
+
+<main>
+
+<!-- ==================================================================== -->
+<!-- 00 封面 -->
+<!-- ==================================================================== -->
+<section class="chapter hero" id="hero" data-chapter="开篇">
+  <canvas id="heroCanvas"></canvas>
+  <div class="wrap">
+    <span class="hero-eyebrow"><i class="pulse"></i>数据可视化 · 新质生产力专题</span>
+
+    <h1 class="hero-title">
+      <span class="l1">人工智能：</span>
+      <span class="l2">新质生产力的核心引擎</span>
+    </h1>
+
+    <p class="hero-lead">
+      新质生产力不是把旧的事情做得更多，而是用<b>新的技术</b>与<b>新的要素组合</b>，
+      做出原来做不出来的东西。这个网站用二十余种可视化，拆解人工智能和这场变化的关系：
+      <b>新在要素，质在效率，力在普惠</b>。
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn primary" href="#concept"><span class="ico">↓</span>从概念开始阅读</a>
+      <a class="btn" href="#flow"><span class="ico">◎</span>直接看作用机制</a>
+      <a class="btn" href="#sources"><span class="ico">◫</span>数据来源与口径</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="v"><span data-count="6000">0</span><span class="u">亿元</span></div>
+        <div class="k">人工智能核心产业规模</div>
+        <div class="s">2024 年 · 工信部表述“接近 6000 亿元”</div>
+      </div>
+      <div class="stat">
+        <div class="v"><span data-count="725.3" data-decimals="1">0</span><span class="u">EFLOPS</span></div>
+        <div class="k">智能算力规模</div>
+        <div class="s">2024 年 · IDC《中国人工智能计算力发展评估报告》</div>
+      </div>
+      <div class="stat">
+        <div class="v"><span data-count="70" data-suffix="%+">0</span></div>
+        <div class="k">中国占全球生成式 AI 专利</div>
+        <div class="s">2014—2023 年 · 世界知识产权组织</div>
+      </div>
+      <div class="stat">
+        <div class="v"><span data-count="7" data-decimals="1">0</span><span class="u">万亿美元</span></div>
+        <div class="k">2030 年 AI 带来的中国 GDP 增量</div>
+        <div class="s">普华永道预测 · 全球增量约 15.7 万亿美元</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>SCROLL</span><span class="track"></span></div>
+</section>
+
+<!-- ==================================================================== -->
+<!-- 01 概念：什么是新质生产力 -->
+<!-- ==================================================================== -->
+<section class="chapter" id="concept" data-chapter="一 · 概念">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="chapter-index">Chapter 01 / 概念</div>
+      <h2 class="chapter-title">新质生产力，<em>新在哪三个要素上</em></h2>
+      <p class="chapter-sub">
+        生产力的经典公式是「劳动者 + 劳动资料 + 劳动对象」。判断一种技术是不是「新质」，
+        就看它是否同时改写了这三个要素。点击下方标签查看人工智能带来的具体跃迁。
+      </p>
+    </div>
+
+    <div class="reveal" data-d="1">
+      <div class="factor-switch" id="factorSwitch"></div>
+      <div class="factor-panel" id="factorPanel"></div>
+      <div class="factor-note" id="factorNote"></div>
+    </div>
+
+    <div class="grid c2-13" style="margin-top:clamp(14px,1.6vw,22px)">
+      <div class="card reveal" data-d="2">
+        <div class="card-head">
+          <h3>四代通用目的技术的“通用性”比较</h3>
+          <span class="caliber" data-c="illustrative">示意值</span>
+        </div>
+        <div class="card-sub">六个维度为示意打分（0—100），用于横向比较不同代际技术的通用程度</div>
+        <div class="card-body"><div class="chart" id="chartGpt" style="height:460px"></div></div>
+        <div class="card-foot"><b>数据口径：</b>示意值（表达量级与方向，非统计数据）</div>
+      </div>
+
+      <div class="card reveal" data-d="3">
+        <div class="card-head"><h3>每一代技术，都在改写生产方式的某一个环节</h3></div>
+        <div class="card-body" style="display:flex;flex-direction:column;gap:13px;justify-content:center">
+          <div class="factor-mini">
+            <div class="h"><span>🚂</span>蒸汽机 · 改写“动力”</div>
+            <div class="b">把体力从生产中解放出来，替代的是人的肌肉。渗透广度大，但深度停在机械环节。</div>
+          </div>
+          <div class="factor-mini">
+            <div class="h"><span>⚡</span>电力 · 改写“组织”</div>
+            <div class="b">让工厂可以重新布局，流水线成为可能。它替代的不只是动力，而是整个生产组织形式。</div>
+          </div>
+          <div class="factor-mini">
+            <div class="h"><span>🌐</span>互联网 · 改写“连接”</div>
+            <div class="b">压缩了信息传递的距离与成本，但本身不会生产内容，也不具备判断能力。</div>
+          </div>
+          <div class="factor-mini on">
+            <div class="h"><span>🧠</span>人工智能 · 改写“判断”</div>
+            <div class="b">第一次把认知劳动纳入可替代范围。更重要的是它能自我进化：模型能力随时间自己抬升，无需重建整套体系。</div>
+          </div>
+        </div>
+        <div class="insight">
+          <span class="tag">结论</span>
+          蒸汽机替代体力、电力重组工厂、互联网压缩距离，而人工智能第一次具备了
+          <strong>自我进化能力</strong>——它的能力上限不是固定的，而是随时间自己抬升。
+          这正是它被称作「通用目的技术」的原因。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================================== -->
+<!-- 02 结构 -->
+<!-- ==================================================================== -->
+<section class="chapter" id="structure" data-chapter="二 · 结构">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="chapter-index">Chapter 02 / 结构</div>
+      <h2 class="chapter-title">把新质生产力<em>拆开来看</em></h2>
+      <p class="chapter-sub">
+        它由三块构成：新技术提供可能，新要素提供条件，新产业提供出口。
+        内圈是三大板块，外圈是具体构成，点击任意扇区可以放大观察。
+      </p>
+    </div>
+
+    <div class="grid c2-31">
+      <div class="card reveal" data-d="1">
+        <div class="card-head">
+          <h3>新质生产力的构成：新技术 · 新要素 · 新产业</h3>
+          <span class="caliber" data-c="illustrative">示意值</span>
+        </div>
+        <div class="card-sub">扇区面积按相对权重示意；点击扇区可下钻</div>
+        <div class="card-body"><div class="chart" id="chartSunburst" style="height:520px"></div></div>
+        <div class="card-foot"><b>数据口径：</b>示意值（结构构成关系示意，扇区面积不代表统计规模）</div>
+      </div>
+
+      <div class="card reveal" data-d="2">
+        <div class="card-head"><h3>为什么人工智能是唯一的“三栖变量”</h3></div>
+        <div class="card-body" style="display:flex;flex-direction:column;gap:14px;justify-content:center">
+          <div class="factor-mini">
+            <div class="h"><span>🧠</span>在“新技术”里</div>
+            <div class="b">它是通用目的技术本身：一套模型能力可以迁移到几乎任意领域，而不需要为每个行业重造一套技术体系。</div>
+          </div>
+          <div class="factor-mini">
+            <div class="h"><span>🔗</span>在“新要素”里</div>
+            <div class="b">它是最强的要素组织者：把数据、算力、人才、场景串成一条可复制的生产线，让要素从“并列”变成“复合”。</div>
+          </div>
+          <div class="factor-mini">
+            <div class="h"><span>🏭</span>在“新产业”里</div>
+            <div class="b">它既是新产业的核心供给方，也是传统产业升级的通用工具，同时占据“被赋能者”和“赋能者”两个位置。</div>
+          </div>
+        </div>
+        <div class="insight">
+          <span class="tag">结论</span>
+          三块结构互相咬合，而人工智能是<strong>唯一同时出现在三块里的变量</strong>。
+          这解释了为什么它会被放在新质生产力的中心位置。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================================== -->
+<!-- 03 要素流动 -->
+<!-- ==================================================================== -->
+<section class="chapter" id="flow" data-chapter="三 · 要素流动">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="chapter-index">Chapter 03 / 作用机制</div>
+      <h2 class="chapter-title">要素如何<em>变成价值</em></h2>
+      <p class="chapter-sub">
+        左边是投入，中间是转化，右边是产出。这张桑基图把人工智能的作用链画成一条可以追踪的路径：
+        从数据与算力出发，经过模型，进入行业，最终汇聚为三类产出。
+      </p>
+    </div>
+
+    <div class="grid c1">
+      <div class="card reveal" data-d="1">
+        <div class="card-head">
+          <h3>从要素投入到价值产出：人工智能的作用链</h3>
+          <span class="caliber" data-c="illustrative">示意值</span>
+        </div>
+        <div class="card-sub">带宽表示相对流量规模（示意）；鼠标悬停可高亮单条路径</div>
+        <div class="card-body"><div class="chart sankey" id="chartSankey"></div></div>
+        <div class="insight">
+          <span class="tag">结论</span>
+          注意最右侧只有三条汇流线——人工智能的价值不是单点效率，而是
+          <strong>效率提升、质量跃迁、新产品新业态</strong>三种产出同时发生。
+          这也是「新质」与「降本」的区别。
+        </div>
+        <div class="card-foot"><b>数据口径：</b>示意值（作用机制示意，用于表达传导路径而非统计流量）</div>
+      </div>
+    </div>
+
+    <div class="grid c2-13" style="margin-top:clamp(14px,1.6vw,22px)">
+      <div class="card reveal" data-d="2">
+        <div class="card-head">
+          <h3>数字经济规模：AI 生长的土壤</h3>
+          <span class="caliber" data-c="reported">公开数据</span>
+        </div>
+        <div class="card-sub">单位：万亿元 · 中国信息通信研究院</div>
+        <div class="card-body"><div class="chart" id="chartDigital" style="height:330px"></div></div>
+        <div class="card-foot"><b>来源：</b>中国信通院《中国数字经济发展研究报告》系列</div>
+      </div>
+
+      <div class="card reveal" data-d="3">
+        <div class="card-head"><h3>为什么土壤厚度决定了 AI 的高度</h3></div>
+        <div class="card-body" style="display:flex;flex-direction:column;gap:14px;justify-content:center">
+          <div class="factor-mini">
+            <div class="h"><span>①</span>数据来自数字化</div>
+            <div class="b">没有业务系统的数字化，就没有可用的数据；没有数据，模型无从训练。数字经济的厚度，直接决定了人工智能的天花板。</div>
+          </div>
+          <div class="factor-mini">
+            <div class="h"><span>②</span>场景来自实体经济</div>
+            <div class="b">人工智能不是独立的产业，它依附在制造、医疗、金融、交通这些真实场景上。场景越全，模型迭代越快。</div>
+          </div>
+          <div class="factor-mini">
+            <div class="h"><span>③</span>回报来自效率差</div>
+            <div class="b">同一环节上人工智能与人工的效率差越大，投资回收期越短，扩散速度也就越快。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================================== -->
+<!-- 04 算力 -->
+<!-- ==================================================================== -->
+<section class="chapter" id="compute" data-chapter="四 · 算力">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="chapter-index">Chapter 04 / 底座</div>
+      <h2 class="chapter-title">算力：新质生产力的<em>基础设施</em></h2>
+      <p class="chapter-sub">
+        如果说数据是新的劳动对象，那么算力就是新的劳动资料。
+        中国智能算力规模三年间接近七倍增长，而结构变化比总量变化更值得注意。
+      </p>
+    </div>
+
+    <div class="grid c2-13">
+      <div class="card reveal" data-d="1">
+        <div class="card-head">
+          <h3>中国智能算力规模</h3>
+          <span class="caliber" data-c="reported">公开数据 + 机构预测</span>
+        </div>
+        <div class="card-sub">单位：EFLOPS · 实线为已公布值，虚线为机构预测值</div>
+        <div class="card-body"><div class="chart" id="chartCompute" style="height:400px"></div></div>
+        <div class="insight">
+          <span class="tag">结论</span>
+          从 2022 年的 <strong>104.8 EFLOPS</strong> 到 2024 年的 <strong>725.3 EFLOPS</strong>，
+          三年接近七倍。算力已经不再是“配套资源”，而是决定模型能力上限的生产资料。
+        </div>
+        <div class="card-foot"><b>来源：</b>IDC《中国人工智能计算力发展评估报告》</div>
+      </div>
+
+      <div class="card reveal" data-d="2">
+        <div class="card-head">
+          <h3>算力结构：智能算力占比抬升</h3>
+          <span class="caliber" data-c="estimated">估算 + 预测</span>
+        </div>
+        <div class="card-sub">单位：% · 智能算力与通用算力的相对结构</div>
+        <div class="card-body"><div class="chart" id="chartComputeMix" style="height:400px"></div></div>
+        <div class="insight">
+          <span class="tag">结论</span>
+          存量算力里通用算力仍然占多数，但<strong>新增算力投资几乎全部压向智能算力</strong>。
+          结构的方向，比当下的比例更能说明趋势。
+        </div>
+        <div class="card-foot"><b>数据口径：</b>结构占比为估算与机构预测，非精确统计值</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================================== -->
+<!-- 05 产业规模 -->
+<!-- ==================================================================== -->
+<section class="chapter" id="industry" data-chapter="五 · 产业规模">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="chapter-index">Chapter 05 / 规模</div>
+      <h2 class="chapter-title">规模：<em>实际增长跑在规划前面</em></h2>
+      <p class="chapter-sub">
+        2017 年国家规划为人工智能核心产业规模设定了三级台阶。七年后回看，
+        实际曲线的斜率明显更陡——2024 年就已经越过了本应在 2025 年达成的目标。
+      </p>
+    </div>
+
+    <div class="grid c1">
+      <div class="card reveal" data-d="1">
+        <div class="card-head">
+          <h3>中国人工智能核心产业规模与规划目标</h3>
+          <span class="caliber" data-c="reported">公开数据 / 规划目标 / 估算</span>
+        </div>
+        <div class="card-sub">单位：亿元 · 柱为已公布值，橙色虚线为按增速推算，紫色点线为国家规划目标</div>
+        <div class="card-body"><div class="chart" id="chartIndustry" style="height:440px"></div></div>
+        <div class="card-foot">
+          <b>来源：</b>工业和信息化部公开表述、中国信息通信研究院、国务院《新一代人工智能发展规划》（2017）
+        </div>
+      </div>
+    </div>
+
+    <div class="grid c2-13" style="margin-top:clamp(14px,1.6vw,22px)">
+      <div class="card reveal" data-d="2">
+        <div class="card-head">
+          <h3>从 1500 亿到 1 万亿：进度条</h3>
+          <span class="caliber" data-c="reported">公开数据 / 目标</span>
+        </div>
+        <div class="card-sub">以 2030 年规划目标 1 万亿元为满刻度</div>
+        <div class="card-body" id="millionBar" style="display:flex;flex-direction:column;gap:18px;justify-content:center"></div>
+        <div class="insight">
+          <span class="tag">结论</span>
+          规划目标从「跳一跳够得着」变成「已经越过」，
+          说明人工智能的产业成熟度<strong>超出了政策制定时的预期</strong>。
+        </div>
+      </div>
+
+      <div class="card reveal" data-d="3">
+        <div class="card-head"><h3>三个被反复引用的产业指标</h3></div>
+        <div class="card-body">
+          <div class="kpis" style="grid-template-columns:1fr 1fr">
+            <div class="kpi accent">
+              <div class="v"><span data-count="4500" data-suffix="+">0</span><span class="u">家</span></div>
+              <div class="k">人工智能企业数量</div>
+              <div class="n">2023 年 · 工信部公开表述</div>
+            </div>
+            <div class="kpi">
+              <div class="v"><span data-count="190" data-suffix="+">0</span><span class="u">款</span></div>
+              <div class="k">已备案生成式人工智能服务</div>
+              <div class="n">2024 年 · 国家网信办公开信息</div>
+            </div>
+            <div class="kpi">
+              <div class="v"><span data-count="37.8" data-decimals="1">0</span><span class="u">万件</span></div>
+              <div class="k">人工智能领域有效发明专利</div>
+              <div class="n">2023 年 · 国家知识产权局</div>
+            </div>
+            <div class="kpi">
+              <div class="v"><span data-count="10" data-suffix="万亿+">0</span><span class="u">元</span></div>
+              <div class="k">带动相关产业规模（目标）</div>
+              <div class="n">2030 年 · 国家规划目标</div>
+            </div>
+          </div>
+          <div class="insight">
+            <span class="tag">说明</span>
+            四个指标来自不同年份与不同发布口径，放在一起看的是<strong>量级</strong>而非精确对比；
+            站内每一处数字都标注了年份与来源。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================================== -->
+<!-- 06 全要素生产率 -->
+<!-- ==================================================================== -->
+<section class="chapter" id="productivity" data-chapter="六 · 生产率">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="chapter-index">Chapter 06 / 效率</div>
+      <h2 class="chapter-title">全要素生产率：<em>“质”落在哪里</em></h2>
+      <p class="chapter-sub">
+        「新质」最终要落到效率上。三个角度观察同一件事：各行业效率提升幅度、渗透率与提升幅度的关系、
+        以及行业内部哪些环节被渗透得最深。
+      </p>
+    </div>
+
+    <div class="grid c2">
+      <div class="card reveal" data-d="1">
+        <div class="card-head">
+          <h3>人工智能对重点行业的效率提升幅度</h3>
+          <span class="caliber" data-c="illustrative">示意值</span>
+        </div>
+        <div class="card-sub">相对人工/传统方式的效率提升（%），数值越大代表替代优势越明显</div>
+        <div class="card-body"><div class="chart" id="chartEmpowerRadar" style="height:400px"></div></div>
+        <div class="insight">
+          <span class="tag">结论</span>
+          提升幅度最大的不是知识密集型行业，而是<strong>标准化程度高、重复性强</strong>的环节——
+          智能制造与交通物流位居前列。
+        </div>
+        <div class="card-foot"><b>数据口径：</b>示意值（基于公开案例整理，非统一口径统计）</div>
+      </div>
+
+      <div class="card reveal" data-d="2">
+        <div class="card-head">
+          <h3>渗透率 × 提升幅度 × 市场规模</h3>
+          <span class="caliber" data-c="illustrative">示意值</span>
+        </div>
+        <div class="card-sub">横轴：行业渗透率（%）· 纵轴：效率提升幅度（%）· 气泡大小：相对市场规模</div>
+        <div class="card-body"><div class="chart" id="chartEmpowerBubble" style="height:400px"></div></div>
+        <div class="insight">
+          <span class="tag">结论</span>
+          左上角是最值得投的区域——<strong>效率差大但渗透率还低</strong>（如交通物流、能源电力），
+          意味着尚未兑现的存量空间；右下角则已进入竞争激烈的普及期。
+        </div>
+        <div class="card-foot"><b>数据口径：</b>示意值（表达量级与方向）</div>
+      </div>
+    </div>
+
+    <div class="grid c1" style="margin-top:clamp(14px,1.6vw,22px)">
+      <div class="card reveal" data-d="1">
+        <div class="card-head">
+          <h3>行业 × 业务环节：人工智能渗透程度热力图</h3>
+          <span class="caliber" data-c="illustrative">示意值</span>
+        </div>
+        <div class="card-sub">色阶由深蓝（低）过渡到橙黄（高），表示该行业在该环节的人工智能渗透程度（%）</div>
+        <div class="card-body"><div class="chart" id="chartHeatmap" style="height:420px"></div></div>
+        <div class="insight">
+          <span class="tag">结论</span>
+          <span id="heatInsight">渗透最深的是客户服务与经营管理——共同点是「重复度高 + 数据留存好」；而研发设计这类依赖判断与创造的环节渗透最低。</span>
+        </div>
+        <div class="card-foot"><b>数据口径：</b>示意值（基于公开案例与行业报告的定性判断量化整理）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================================== -->
+<!-- 07 创新产出 -->
+<!-- ==================================================================== -->
+<section class="chapter" id="innovation" data-chapter="七 · 创新">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="chapter-index">Chapter 07 / 创新</div>
+      <h2 class="chapter-title">创新产出：<em>“质”的来源</em></h2>
+      <p class="chapter-sub">
+        效率来自存量优化，而新质来自增量创新。专利看的是创新能力，
+        备案大模型看的是交付能力——两条曲线一起抬升，才说明创新没有停留在纸面上。
+      </p>
+    </div>
+
+    <div class="grid c2">
+      <div class="card reveal" data-d="1">
+        <div class="card-head">
+          <h3>生成式人工智能专利家族的全球分布</h3>
+          <span class="caliber" data-c="reported">公开数据</span>
+        </div>
+        <div class="card-sub">2014—2023 年累计 · 单位：项 · 世界知识产权组织</div>
+        <div class="card-body" style="display:flex;gap:12px;align-items:center">
+          <div class="chart" id="chartPatentsRose" style="flex:1.25 1 0;height:400px"></div>
+          <div class="rose-legend" id="roseLegend" style="flex:1 1 0"></div>
+        </div>
+        <div class="insight">
+          <span class="tag">结论</span>
+          <span id="patentInsight">十年间全球约 5.4 万项生成式人工智能专利家族中，中国占比约七成。</span>
+        </div>
+        <div class="card-foot"><b>来源：</b>世界知识产权组织《生成式人工智能专利态势报告》</div>
+      </div>
+
+      <div class="card reveal" data-d="2">
+        <div class="card-head">
+          <h3>创新转化：有效发明专利与备案大模型</h3>
+          <span class="caliber" data-c="reported">公开数据 + 估算</span>
+        </div>
+        <div class="card-sub">左侧柱：人工智能领域有效发明专利（万件）· 右侧柱：备案生成式人工智能服务（款）</div>
+        <div class="card-body"><div class="chart" id="chartPatentStock" style="height:420px"></div></div>
+        <div class="insight">
+          <span class="tag">结论</span>
+          专利是「存量创新」，备案大模型是「<strong>已经交付到用户手上的产品</strong>」。
+          从专利到产品的转化速度，决定了创新对生产率的实际贡献。
+        </div>
+        <div class="card-foot"><b>来源：</b>国家知识产权局、国家互联网信息办公室备案信息；2024 年专利数为按公开增速推算</div>
+      </div>
+    </div>
+
+    <div class="grid c1" style="margin-top:clamp(14px,1.6vw,22px)">
+      <div class="card reveal" data-d="1">
+        <div class="card-head">
+          <h3>人工智能技术方向关注热度</h3>
+          <span class="caliber" data-c="illustrative">示意值</span>
+        </div>
+        <div class="card-sub">按技术方向综合关注度排序；标签大小表示热度，颜色表示技术代际</div>
+        <div class="card-body">
+          <div class="tagfield" id="tagField"></div>
+          <div class="era-legend">
+            <span class="it"><i class="dt" style="background:#22d3ee"></i>生成式</span>
+            <span class="it"><i class="dt" style="background:#a78bfa"></i>自主智能</span>
+            <span class="it"><i class="dt" style="background:#34d399"></i>基础设施</span>
+            <span class="it"><i class="dt" style="background:#94a3b8"></i>感知智能</span>
+            <span class="it"><i class="dt" style="background:#fbbf24"></i>前沿探索</span>
+          </div>
+        </div>
+        <div class="insight">
+          <span class="tag">结论</span>
+          从「感知」到「生成」再到「智能体」：技术热点的迁移方向，就是产业价值迁移的方向。
+          热度最高的方向，恰好是<strong>让模型从“回答”走向“行动”</strong>的方向。
+        </div>
+        <div class="card-foot"><b>数据口径：</b>示意值（热度排序用于表达趋势，非统计排名）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================================== -->
+<!-- 08 全球格局 -->
+<!-- ==================================================================== -->
+<section class="chapter" id="global" data-chapter="八 · 全球格局">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="chapter-index">Chapter 08 / 竞争格局</div>
+      <h2 class="chapter-title">全球格局与<em>产业链乘数</em></h2>
+      <p class="chapter-sub">
+        把六个维度放在同一张雷达图上，可以看到优势与差距分别在哪里；
+        而可拖拽的产业链图谱则说明另一件事：链条越长，上游效率提升被放大的倍数越大。
+      </p>
+    </div>
+
+    <div class="grid c2">
+      <div class="card reveal" data-d="1">
+        <div class="card-head">
+          <h3>主要经济体人工智能综合竞争力</h3>
+          <span class="caliber" data-c="illustrative">示意值</span>
+        </div>
+        <div class="card-sub">六个维度归一化为 0—100 分进行比较</div>
+        <div class="card-body"><div class="chart" id="chartGlobalRadar" style="height:420px"></div></div>
+        <div class="insight">
+          <span class="tag">结论</span>
+          中美构成第一梯队：中国在<strong>专利与论文</strong>等创新产出侧更突出，
+          在<strong>算力与投资</strong>侧仍有明显差距。差距最集中的环节，就是下一阶段投入的重点。
+        </div>
+        <div class="card-foot"><b>数据口径：</b>示意值（综合公开信息归一化，非官方排名）</div>
+      </div>
+
+      <div class="card reveal" data-d="2">
+        <div class="card-head">
+          <h3>2030 年人工智能带来的 GDP 增量（预测）</h3>
+          <span class="caliber" data-c="forecast">机构预测</span>
+        </div>
+        <div class="card-sub">单位：万亿美元 · 全球合计约 15.7 万亿美元</div>
+        <div class="card-body"><div class="chart" id="chartGdp" style="height:420px"></div></div>
+        <div class="insight">
+          <span class="tag">结论</span>
+          普华永道预测到 2030 年人工智能将带来约 <strong>15.7 万亿美元</strong>的全球 GDP 增量，
+          其中约 <strong>7 万亿美元来自中国</strong>，接近全球增量的 45%。
+          麦肯锡对生成式人工智能的年度价值测算为 2.6 万亿—4.4 万亿美元。
+        </div>
+        <div class="card-foot"><b>来源：</b>普华永道、麦肯锡相关研究（预测值）</div>
+      </div>
+    </div>
+
+    <div class="grid c1" style="margin-top:clamp(14px,1.6vw,22px)">
+      <div class="card reveal" data-d="1">
+        <div class="card-head">
+          <h3>人工智能产业链图谱</h3>
+          <span class="caliber" data-c="illustrative">示意值</span>
+        </div>
+        <div class="card-sub">上游算力底座 · 中游模型能力 · 下游千行百业（可拖拽、可悬停查看）</div>
+        <div class="card-body"><div class="chart graph" id="chartChain"></div></div>
+        <div class="insight">
+          <span class="tag">结论</span>
+          链条越长，乘数效应越大：上游每提升一分算力效率，都会沿着模型与场景逐级放大，
+          最终在<strong>下游每个行业</strong>各自兑现一次。这是人工智能区别于单点技术的关键结构特征。
+        </div>
+        <div class="card-foot"><b>数据口径：</b>示意值（产业链结构示意，节点大小表示相对重要性，非产值）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================================== -->
+<!-- 09 就业 -->
+<!-- ==================================================================== -->
+<section class="chapter" id="jobs" data-chapter="九 · 就业">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="chapter-index">Chapter 09 / 就业结构</div>
+      <h2 class="chapter-title">被替代的岗位，与<em>被创造的岗位</em></h2>
+      <p class="chapter-sub">
+        新质生产力也带来结构性的焦虑。世界经济论坛的预测是：到 2030 年全球净增约 7800 万个岗位——
+        但净增不等于每个人都不受影响，关键在于被替代岗位与新增岗位之间隔着一条技能鸿沟。
+      </p>
+    </div>
+
+    <div class="reveal" data-d="1">
+      <div class="jobpills">
+        <div class="jobpill up">
+          <div class="v"><span data-count="17000">0</span><span class="u" style="font-size:.45em;color:var(--ink-2)"> 万</span></div>
+          <div class="k">新创造的岗位</div>
+          <div class="n">至 2030 年 · 世界经济论坛预测</div>
+        </div>
+        <div class="jobpill down">
+          <div class="v"><span data-count="9200">0</span><span class="u" style="font-size:.45em;color:var(--ink-2)"> 万</span></div>
+          <div class="k">被技术替代的岗位</div>
+          <div class="n">至 2030 年 · 世界经济论坛预测</div>
+        </div>
+        <div class="jobpill net">
+          <div class="v"><span data-count="7800" data-prefix="+">0</span><span class="u" style="font-size:.45em;color:var(--ink-2)"> 万</span></div>
+          <div class="k">净增岗位</div>
+          <div class="n">结构变化而非总量收缩</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid c1" style="margin-top:clamp(14px,1.6vw,22px)">
+      <div class="card reveal" data-d="2">
+        <div class="card-head">
+          <h3>各行业岗位的创造与替代（至 2030 年）</h3>
+          <span class="caliber" data-c="forecast">机构预测</span>
+        </div>
+        <div class="card-sub">单位：万人 · 向右为新增岗位，向左为被替代岗位 · 行业拆分为按报告全球总量的示意性拆分，两侧合计分别等于 1.7 亿与 9200 万</div>
+        <div class="card-body"><div class="chart" id="chartJobs" style="height:540px"></div></div>
+        <div class="card-foot"><b>来源：</b>世界经济论坛《未来就业报告 2025》</div>
+      </div>
+    </div>
+
+    <div class="grid c4" style="margin-top:clamp(14px,1.6vw,22px)">
+      <div class="card reveal" data-d="1">
+        <div class="factor-mini" style="border:0;padding:0;background:none">
+          <div class="h"><span>📉</span>收缩的岗位高度集中</div>
+          <div class="b">行政与文秘、客服与销售是图中仅有的两个净减少方向——替代压力在岗位类型上并不均匀。</div>
+        </div>
+      </div>
+      <div class="card reveal" data-d="2">
+        <div class="factor-mini" style="border:0;padding:0;background:none">
+          <div class="h"><span>📈</span>扩张的岗位需要新技能</div>
+          <div class="b">信息技术与数据、医疗与社会照护是净增最多的方向，但它们与收缩岗位所需的技能并不通用。</div>
+        </div>
+      </div>
+      <div class="card reveal" data-d="3">
+        <div class="factor-mini" style="border:0;padding:0;background:none">
+          <div class="h"><span>🎓</span>39% 的核心技能将被重构</div>
+          <div class="b">论坛同时预计到 2030 年约 39% 的核心技能将发生变化，再培训因此不是补充措施，而是必需环节。</div>
+        </div>
+      </div>
+      <div class="card reveal" data-d="4">
+        <div class="factor-mini" style="border:0;padding:0;background:none">
+          <div class="h"><span>🇨🇳</span>中国的人才缺口</div>
+          <div class="b">我国人工智能领域人才缺口常被引用为约 500 万人量级，缺口方向恰好与新增岗位的方向重合。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight reveal" data-d="4">
+      <span class="tag">结论</span>
+      人工智能作为新质生产力，其社会意义不在于替代了多少人，
+      而在于<strong>能否把被替代的人重新接到新增的岗位上</strong>。
+      图中的净增岗位集中在数字技术与照护服务两类，而这两类岗位恰好都需要持续的技能更新。
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================================== -->
+<!-- 10 未来 -->
+<!-- ==================================================================== -->
+<section class="chapter" id="future" data-chapter="十 · 未来">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="chapter-index">Chapter 10 / 展望</div>
+      <h2 class="chapter-title">从技术可用，到<em>社会可用</em></h2>
+      <p class="chapter-sub">
+        每一代通用目的技术都要跨过两个台阶：先证明「能用」，再证明「值得用」。
+        衡量标准也随之改变——从参数规模，转向实际产出。
+      </p>
+    </div>
+
+    <div class="grid c2-13">
+      <div class="card reveal" data-d="1">
+        <div class="card-head">
+          <h3>演进路线</h3>
+          <span class="caliber" data-c="reported">公开数据 / 展望</span>
+        </div>
+        <div class="card-sub">青蓝色为已发生，橙色为展望节点</div>
+        <div class="card-body"><div class="timeline" id="timeline"></div></div>
+      </div>
+
+      <div class="card reveal" data-d="2">
+        <div class="card-head">
+          <h3>智能化驱动的“新质生产力指数”</h3>
+          <span class="caliber" data-c="illustrative">示意值</span>
+        </div>
+        <div class="card-sub">以 2020 年为基准 100 的示意性合成指数</div>
+        <div class="card-body"><div class="chart" id="chartIndex" style="height:360px"></div></div>
+        <div class="insight">
+          <span class="tag">说明</span>
+          该指数为<strong>示意性构造</strong>：把算力、专利、产业规模、渗透率等指标归一化后合成，
+          用来直观表达「质」的跃升，而不是单一规模的增长。它不是官方统计指标。
+        </div>
+        <div class="card-foot"><b>数据口径：</b>示意值（非官方统计指数）</div>
+      </div>
+    </div>
+
+    <div class="closing reveal" data-d="3">
+      <div class="big">
+        人工智能作为新质生产力，意义不在于它有多大，<br>
+        而在于它把<em>一个国家、一个产业、一个人的能力上限</em>，整体抬高了一截。
+      </div>
+      <div class="sub3">
+        <div class="b"><div class="t">新 · 在要素</div><div class="p">数据成为生产要素，算力成为劳动资料，模型成为可复制的生产能力。</div></div>
+        <div class="b"><div class="t">质 · 在效率</div><div class="p">全要素生产率提升来自重复环节的替代，以及新产品新业态的创造。</div></div>
+        <div class="b"><div class="t">力 · 在普惠</div><div class="p">通用目的技术的价值最终体现为扩散：越多的行业与个人用得上，力量越大。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================================== -->
+<!-- 11 数据来源 -->
+<!-- ==================================================================== -->
+<section class="chapter" id="sources" data-chapter="数据来源">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="chapter-index">Appendix / 数据说明</div>
+      <h2 class="chapter-title">数据来源与<em>口径说明</em></h2>
+      <p class="chapter-sub">
+        本站数据全部来自公开报告与官方表述，并按下述五级口径标注。
+        凡属估算或示意性质的数据，均在图表标题旁明确标记，不冒充统计值。
+      </p>
+    </div>
+
+    <div class="grid c1">
+      <div class="card reveal" data-d="1">
+        <div class="card-head"><h3>五级口径图例</h3></div>
+        <div class="card-body">
+          <div class="caliber-key" id="caliberKey"></div>
+        </div>
+      </div>
+
+      <div class="card reveal" data-d="2">
+        <div class="card-head"><h3>数据来源清单</h3></div>
+        <div class="card-body">
+          <div class="src-list" id="srcList"></div>
+        </div>
+        <div class="insight">
+          <span class="tag">使用建议</span>
+          引用本站数据时，请以左侧列出的原始来源为准；
+          凡标注为「估算」「示意值」的数字<strong>不应作为统计数据引用</strong>。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <b>人工智能：新质生产力的核心引擎</b> · 数据可视化专题
+    <div class="fnote">
+      数据来源：国务院《新一代人工智能发展规划》、工业和信息化部公开表述、
+      中国信息通信研究院、IDC、世界知识产权组织、国家知识产权局、
+      国家互联网信息办公室、普华永道、麦肯锡、世界经济论坛等公开资料。<br>
+      本站为课程作业性质的可视化作品，图表中的估算值与示意值仅用于表达趋势与量级，不作为统计数据使用。
+    </div>
+  </div>
+</footer>
+
+<noscript>
+  <div class="wrap" style="padding:40px 0">
+    <div class="insight">本站的图表依赖 JavaScript 渲染，请启用 JavaScript 后重新打开。</div>
+  </div>
+</noscript>
+
+<script src="vendor/echarts.min.js"></script>
+<script src="vendor/d3.min.js"></script>
+<script src="data/dataset.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/charts/hero-canvas.js"></script>
+<script src="js/charts/concept.js"></script>
+<script src="js/charts/structure.js"></script>
+<script src="js/charts/flow.js"></script>
+<script src="js/charts/compute.js"></script>
+<script src="js/charts/industry.js"></script>
+<script src="js/charts/productivity.js"></script>
+<script src="js/charts/innovation.js"></script>
+<script src="js/charts/global.js"></script>
+<script src="js/charts/jobs.js"></script>
+<script src="js/charts/future.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
